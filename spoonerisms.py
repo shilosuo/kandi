@@ -28,13 +28,16 @@ def main():
     # tähän bigrammisetin teko
     bigram_set = set(bigrams)
 
+
     spoonerisms = []
     for a, b in bigrams:
-        sp = spoon(a, b)
+        sp = spoon(a, b) # palauttaa nyt listan
         #if sp in bigram_set:
         #    spoonerisms.append(sp)
         if sp:
-            spoonerisms.append(sp)
+            for candidate in sp:
+                spoonerisms.append(candidate)
+    
 
     with open("output.txt", "w", encoding="utf-8") as f:
         for s in spoonerisms:

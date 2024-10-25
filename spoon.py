@@ -1,6 +1,17 @@
 VOW = 'aeiouyäö'
+FRONT = 'äöy'
+BACK = 'aou'
+NEUTRAL = 'ie'
+
+# harmoniset sanakirjat
+ftb = {'ä':'a', 'ö':'o', 'y':'u'}
+btf = {'a':'ä', 'o':'ö', 'u':'y'}
 
 def spoon(w1, w2):
+
+    #vokaaliharmoniatesti:
+    #if w1 == "kota" and w2 == "sintti":
+    #    return [("sitä", "kontti"), ("sita", "kontti")]
 
     vpos1 = None
     w1_long = False
@@ -47,10 +58,52 @@ def spoon(w1, w2):
 
     w1_sp = w1_sp_beg + w1_sp
 
+
+
+    #vokaaliharmoniakorjailu:
+
+    #ensin muunnoksen ensimmäiselle sanalle:
+    w1_sp_candidates = []
+    result = ""
+    dec_vow = w2[vpos2] # deciding vowel
+    if dec_vow in FRONT or dec_vow in NEUTRAL:
+        for i in range(len(w1_sp)):
+            c = w1_sp[i]
+            result += btf[c] if c in btf else c
+        w1_sp_candidates.append(result)
+
+    result = ""
+    if dec_vow in BACK or dec_vow in NEUTRAL:
+        for i in range(len(w1_sp)):
+            c = w1_sp[i]
+            result += ftb[c] if c in ftb else c
+        w1_sp_candidates.append(result)
+
+    #sitten muunnoksen toiselle sanalle:
+    w2_sp_candidates = []
+    result = ""
+    dec_vow = w1[vpos1] # deciding vowel
+    if dec_vow in FRONT or dec_vow in NEUTRAL:
+        for i in range(len(w2_sp)):
+            c = w2_sp[i]
+            result += btf[c] if c in btf else c
+        w2_sp_candidates.append(result)
+        
+    result = ""
+    if dec_vow in BACK or dec_vow in NEUTRAL:
+        for i in range(len(w2_sp)):
+            c = w2_sp[i]
+            result += ftb[c] if c in ftb else c
+        w2_sp_candidates.append(result)
+
+    # kootaan muunnosvaihtoehdot (max 2) yhteen
+    candidates = [(w1, w2) for w1 in set(w1_sp_candidates) for w2 in set(w2_sp_candidates)]
+
+    # joku vanha alustava ratkaisu:
     #w1_sp = w2[:vpos2+1] + w1[vpos1+1:]
     #w2_sp = w1[:vpos1+1] + w2[vpos2+1:]
 
-    return w1_sp, w2_sp
+    return candidates
 
 if __name__ == "__main__":
 
