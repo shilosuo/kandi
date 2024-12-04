@@ -1,13 +1,19 @@
+<text title="TunnistusTunnustuslanka" datefrom="20141216" dateto="20141216" date="16.12.2014" clock="21:40:45" id="32825277" sec="ihmissuhteet">
 AAMU TEROLLA - TEEMU AROLLA
 AAPELI-SONNI - SOOPELI-ANNI
 AAPO KAPINOI - KAAPO APINOI
 AAPOLLA KAKKU - KAAPOLLA AKKU
+velhon  kelmu
+kusi
 AAPON KANSIO - KAAPON ANSIO
-AASI JA KUKKA - KUUSI JA AKKA
+AASI JA KUKKA - KUUSI JA AKKA 
 AATTELI KIKKAA - KIITTELI AKKAA
 AATTELI KIPINÖITÄ - KIITTELI APINOITA
 AILAN ENSIO - EILAN ANSIO
-kulhon vesi - velhon kusi
+veemu
+alhon
+kulhon  vesi - velhon kusi
+vesi
 eetu iivonen - iitu eevonen
-kota sintti
+kota sintti 
 AKANAT LANTILLA - LAKANAT ANTILLA

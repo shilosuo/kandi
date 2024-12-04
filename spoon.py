@@ -96,7 +96,7 @@ def spoon(w1, w2):
             result += ftb[c] if c in ftb else c
         w2_sp_candidates.append(result)
 
-    # kootaan muunnosvaihtoehdot (max 2) yhteen
+    # kootaan muunnosvaihtoehdot (max 4?) yhteen
     candidates = [(w1, w2) for w1 in set(w1_sp_candidates) for w2 in set(w2_sp_candidates)]
 
     # joku vanha alustava ratkaisu:
