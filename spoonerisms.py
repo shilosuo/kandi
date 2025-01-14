@@ -13,8 +13,7 @@ def tokenize_txt(filename):
 def tokenize_vrt(filename):
     try:
         with open(filename, encoding="utf-8") as f:
-            lines = [f.readline() for i in range(100)]
-            #.lower!
+            lines = [f.readline().lower() for i in range(100)]
             tokens = [line.split()[0] for line in lines if line]
 
         return tokens
@@ -40,17 +39,24 @@ def main():
     # tähän bigrammisetin teko
     bigram_set = set(bigrams)
 
+    sp_dict = {}
+    spoonerisms = [] 
+    for (a, b) in bigrams:
+        if not (a, b) in sp_dict:
+            sp_dict[(a, b)] = set()
+            candidates = spoon(a, b) # palauttaa nyt listan
+            if candidates:
+                for candidate in candidates:
+                    # seuraavalla rivillä ensin huolehditaan että mukaan ei tule degeneroituneita
+                    # tai samat sanat eri järjestyksessä
+                    if not(candidate == (a, b) or candidate == (b, a)) and candidate in bigram_set:
+                        sp_dict[(a, b)].add(candidate)
+        for cand in sp_dict[(a, b)]:
+            spoonerisms.append((a, b, cand))
+        
 
-    spoonerisms = []
-    for a, b in bigrams:
-        sp = spoon(a, b) # palauttaa nyt listan
-        #if sp in bigram_set:
-        #    spoonerisms.append(sp)
-        if sp:
-            for candidate in sp:
-                # seuraavalla rivillä ensin huolehditaan että mukaan ei tule degeneroituneita
-                if not(candidate[0] == a and candidate[1] == b) and candidate in bigram_set:
-                    spoonerisms.append((a, b, candidate))
+        #spoonerisms[(a, b)]["counter"] += 1
+        
     
 
     with open("output.txt", "w", encoding="utf-8") as f:

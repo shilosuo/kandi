@@ -1,2 +1,9 @@
+sitä kontti --> kota sintti
 velhon kusi --> kulhon vesi
 kulhon vesi --> velhon kusi
+tuono hieli --> hieno tuoli
+tueno hioli --> hieno tuoli
+kota sintti --> sita kontti
+kota sintti --> sitä kontti
+sita kontti --> kota sintti
+hieno tuoli --> tuono hieli
