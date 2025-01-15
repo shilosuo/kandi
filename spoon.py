@@ -68,12 +68,26 @@ def spoon(w1, w2):
 
     #piirrekorjailu:
 
+    # saman sidosvokaalin tapaukset:
+    if w1[vpos1] == w2[vpos2+1] or w2[vpos2] == w1[vpos1+1]:
+        w1_sp = w2[:vpos2] + w1[vpos1:]
+        w2_sp = w1[:vpos1] + w2[vpos2:]
+        return [(w1_sp, w2_sp)]
+        # vain alkukonsonantit vaihtavat paikkoja
+        # ei tarvitse huolehtia diftongien laillisuudesta
+        # tai vokaaliharmoniasta
+
     #ensin laillistetaan diftongit ensimmäiselle sanalle:
     seq = w1_sp[vpos2:vpos2+2]
     if not w1_long and seq in featadj:
         w1_sp = w1_sp.replace(seq, featadj[seq])
 
-    # sitten vokaaliharmonia ensimmäiselle sanalle
+    #sitten laillistetaan diftongit toiselle sanalle:
+    seq = w2_sp[vpos1:vpos1+2]
+    if not w2_long and seq in featadj:
+        w2_sp = w2_sp.replace(seq, featadj[seq])
+
+    # vokaaliharmonia ensimmäiselle sanalle
     w1_sp_candidates = set()
     result = ""
     dec_vow = w2[vpos2] # deciding vowel
@@ -90,12 +104,7 @@ def spoon(w1, w2):
             result += ftb[c] if c in ftb else c
         w1_sp_candidates.add(result)
 
-    #laillistetaan diftongit toiselle sanalle:
-    seq = w2_sp[vpos1:vpos1+2]
-    if not w2_long and seq in featadj:
-        w2_sp = w2_sp.replace(seq, featadj[seq])
-
-    # sitten vokaaliharmonia toiselle sanalle
+    # vokaaliharmonia toiselle sanalle
     w2_sp_candidates = set()
     result = ""
     dec_vow = w1[vpos1] # deciding vowel

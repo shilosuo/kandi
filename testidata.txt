@@ -7,10 +7,18 @@ AAPO KAPINOI - KAAPO APINOI
 AAPOLLA KAKKU - KAAPOLLA AKKU
 noin
 vain
+niin
+vain
+vaan
+niin
 velhon  kelmu
 Kusi
+viin
+nain
 AAPON KANSIO - KAAPON ANSIO
 AASI JA KUKKA - KUUSI JA AKKA 
+niin
+vaan
 AATTELI KIKKAA - KIITTELI AKKAA
 AATTELI KIPINÖITÄ - KIITTELI APINOITA
 AILAN ENSIO - EILAN ANSIO
@@ -22,6 +30,8 @@ TUONO
 HIELI
 tueno
 hioli
+vehreä
+niitty
 Vain
 noin
 eetu iivonen - iitu eevonen
@@ -30,5 +40,7 @@ sintti
 AKANAT LANTILLA - LAKANAT ANTILLA
 sita
 kontti
+nihrea
+veetty
 hieno pieno
 tuoli

@@ -1,9 +1,13 @@
 sitä kontti --> kota sintti
+niin vain --> viin nain
 velhon kusi --> kulhon vesi
+viin nain --> niin vain
 kulhon vesi --> velhon kusi
 tuono hieli --> hieno tuoli
 tueno hioli --> hieno tuoli
+vehreä niitty --> nihrea veetty
 kota sintti --> sita kontti
 kota sintti --> sitä kontti
 sita kontti --> kota sintti
+nihrea veetty --> vehreä niitty
 hieno tuoli --> tuono hieli
