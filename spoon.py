@@ -8,7 +8,7 @@ NEUTRAL = 'ie'
 ftb = {'ä':'a', 'ö':'o', 'y':'u'}
 btf = {'a':'ä', 'o':'ö', 'u':'y'}
 
-# piirrekorjaussanakirja
+# piirrekorjaussanakirja / featural adjustment 
 featadj = {'io':'ie', 'iö':'ie', 'ue':'uo', 'ye':'yö'}
 
 def spoon(w1, w2):
@@ -69,7 +69,10 @@ def spoon(w1, w2):
     #piirrekorjailu:
 
     # saman sidosvokaalin tapaukset:
-    if w1[vpos1] == w2[vpos2+1] or w2[vpos2] == w1[vpos1+1]:
+    # huomioidaan myös tapaukset, joissa sidosvokaali ei täsmälleen sama mutta harmoninen ekvivalentti
+    a, b, c, d = w1[vpos1], w2[vpos2+1], w2[vpos2], w1[vpos1+1]
+    if ftb.get(a, a) == ftb.get(b, b) or ftb.get(c, c) == ftb.get(d, d):
+    #if w1[vpos1] == w2[vpos2+1] or w2[vpos2] == w1[vpos1+1]:
         w1_sp = w2[:vpos2] + w1[vpos1:]
         w2_sp = w1[:vpos1] + w2[vpos2:]
         return [(w1_sp, w2_sp)]
